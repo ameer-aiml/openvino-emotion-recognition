@@ -74,7 +74,7 @@ while True:
     count += 1
     print(count)
     if count>600:
-        print(g)
+        print("600 frames done")
         break
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
