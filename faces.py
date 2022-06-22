@@ -16,7 +16,7 @@ net.setPreferableTarget(cv2.dnn.DNN_TARGET_MYRIAD)
 net2.setPreferableBackend(cv2.dnn.DNN_BACKEND_INFERENCE_ENGINE)
 net2.setPreferableTarget(cv2.dnn.DNN_TARGET_MYRIAD)
 
-cap = cv2.VideoCapture('my_face.avi')
+cap = cv2.VideoCapture(0)
 
 emo =  ('neutral', 'happy', 'sad', 'surprise', 'anger')
 
@@ -28,7 +28,7 @@ lineType               = 3
 
 
 count = 0
-while(cap.isOpened()):
+while True:
     try:
         ret, frame = cap.read()
     except:
@@ -69,7 +69,8 @@ while(cap.isOpened()):
         else:
             print("-")
 
-    cv2.imwrite("frame%d.jpg" % count, frame) 
+    #cv2.imwrite("frame%d.jpg" % count, frame) 
+    cv2.imread('frame',frame)
     count += 1
     print(count)
     if count>600:
